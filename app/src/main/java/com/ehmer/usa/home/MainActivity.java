@@ -15,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.ehmer.usa.R;
-import com.ehmer.usa.RxUsaApplication;
+import com.ehmer.usa.UsaApplication;
 import com.ehmer.usa.constitution.ConstitutionService;
 import com.ehmer.usa.login.LoginActivity;
 
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        RxUsaApplication.get(this).component().inject(this);
+        UsaApplication.get(this).component().inject(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 

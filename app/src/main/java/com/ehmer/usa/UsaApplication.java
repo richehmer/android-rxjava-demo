@@ -4,14 +4,14 @@ import android.app.Application;
 import android.content.Context;
 
 
-public class RxUsaApplication extends Application {
+public class UsaApplication extends Application {
 
     private ApplicationComponent component;
 
 
-    public static RxUsaApplication get(Context ctx) {
+    public static UsaApplication get(Context ctx) {
         //throws RuntimeException if this class isn't named in AndroidManifest.xml
-        return (RxUsaApplication) ctx.getApplicationContext();
+        return (UsaApplication) ctx.getApplicationContext();
     }
 
     @Override

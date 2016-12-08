@@ -19,7 +19,7 @@ public interface ApplicationComponent extends ApplicationComponentGraph {
         private Initializer() {
         }
 
-        static ApplicationComponent init(RxUsaApplication app) {
+        static ApplicationComponent init(UsaApplication app) {
             return DaggerApplicationComponent.builder()
                     .applicationModule(new ApplicationModule(app))
                     .build();

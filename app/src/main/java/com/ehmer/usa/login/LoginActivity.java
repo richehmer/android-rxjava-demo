@@ -14,7 +14,7 @@ import android.widget.ScrollView;
 import android.widget.Toast;
 
 import com.ehmer.usa.R;
-import com.ehmer.usa.RxUsaApplication;
+import com.ehmer.usa.UsaApplication;
 import com.ehmer.usa.constitution.ConstitutionService;
 import com.ehmer.usa.constitution.UsConstitution;
 import com.ehmer.usa.databinding.ActivityLoginBinding;
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity implements RatificationCont
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        RxUsaApplication.get(this).component().inject(this);
+        UsaApplication.get(this).component().inject(this);
         bind = DataBindingUtil.setContentView(this, R.layout.activity_login);
 
         mPresenter = new RatificationPresenter(constitutionService, this,

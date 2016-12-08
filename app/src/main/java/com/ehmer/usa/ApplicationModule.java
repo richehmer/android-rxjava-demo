@@ -6,6 +6,8 @@ import com.ehmer.usa.constitution.ConstitutionService;
 import com.ehmer.usa.constitution.ConstitutionServiceImpl;
 import com.ehmer.usa.login.RatificationContract;
 import com.ehmer.usa.login.RatificationPresenter;
+import com.ehmer.usa.messaging.ConstitutionalMessageService;
+import com.ehmer.usa.messaging.MessageServiceImpl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -22,9 +24,9 @@ import dagger.Provides;
  * http://square.github.io/dagger/
  */
 public class ApplicationModule {
-    private final RxUsaApplication app;
+    private final UsaApplication app;
 
-    public ApplicationModule(RxUsaApplication app) {
+    public ApplicationModule(UsaApplication app) {
         this.app = app;
     }
 
@@ -49,5 +51,11 @@ public class ApplicationModule {
     @Singleton
     Gson provideGsonInstance() {
         return new GsonBuilder().setPrettyPrinting().create();
+    }
+
+    @Provides
+    @Singleton
+    ConstitutionalMessageService provideMEssageService(MessageServiceImpl impl) {
+        return impl;
     }
 }

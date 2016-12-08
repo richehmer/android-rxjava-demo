@@ -42,4 +42,5 @@
     <string name="executive">Executive</string>
     <string name="judicial">Judicial</string>
     <string name="media">Media</string>
+    <string name="propose_law">Propose Law</string>
 </resources>
