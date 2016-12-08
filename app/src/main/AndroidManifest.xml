@@ -1,21 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ehmer.rxdemo">
-
-    <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-    <uses-permission android:name="android.permission.READ_PROFILE" />
-    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    package="com.ehmer.usa">
 
     <application
+        android:name="com.ehmer.usa.RxUsaApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
+        <!-- Single top launch mode ensures that the login activity isn't started more than once
+        by the main activity when there is a configuration change.-->
         <activity
-            android:name=".LoginActivity"
-            android:label="@string/app_name">
+            android:name=".login.LoginActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".home.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

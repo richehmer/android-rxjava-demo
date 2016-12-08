@@ -1,77 +1,135 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center_horizontal"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.ehmer.rxdemo.LoginActivity">
+<layout>
 
-    <!-- Login progress -->
-    <ProgressBar
-        android:id="@+id/login_progress"
-        style="?android:attr/progressBarStyleLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:visibility="gone" />
-
-    <ScrollView
-        android:id="@+id/login_form"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="com.ehmer.usa.login.LoginActivity">
 
-        <LinearLayout
-            android:id="@+id/email_login_form"
-            android:layout_width="match_parent"
+        <!-- Login progress -->
+        <ProgressBar
+            android:id="@+id/login_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
 
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+        <ScrollView
+            android:id="@+id/login_form"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-                <AutoCompleteTextView
-                    android:id="@+id/email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/prompt_email"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <EditText
-                    android:id="@+id/password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="@string/prompt_password"
-                    android:imeActionId="@+id/login"
-                    android:imeActionLabel="@string/action_sign_in_short"
-                    android:imeOptions="actionUnspecified"
-                    android:inputType="textPassword"
-                    android:maxLines="1"
-                    android:singleLine="true" />
-
-            </android.support.design.widget.TextInputLayout>
-
-            <Button
-                android:id="@+id/email_sign_in_button"
-                style="?android:textAppearanceSmall"
+            <LinearLayout
+                android:id="@+id/email_login_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:orientation="vertical"
+                android:paddingBottom="72dp">
 
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Switch
+                            android:id="@+id/ratify_delaware"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_delaware" />
+
+
+                        <Switch
+                            android:id="@+id/ratify_pennsylvania"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_pennsylvania" />
+
+                        <Switch
+                            android:id="@+id/ratify_new_jersey"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_new_jersey" />
+
+                        <Switch
+                            android:id="@+id/ratify_georgia"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_georgia" />
+
+                        <Switch
+                            android:id="@+id/ratify_connecticut"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_connecticut" />
+
+                        <Switch
+                            android:id="@+id/ratify_massachusetts"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_massachusetts" />
+
+                        <Switch
+                            android:id="@+id/ratify_maryland"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_maryland" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <Switch
+                            android:id="@+id/ratify_south_carolina"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_south_carolina" />
+
+                        <Switch
+                            android:id="@+id/ratify_new_hampshire"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_new_hampshire" />
+
+                        <Switch
+                            android:id="@+id/ratify_virginia"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_virginia" />
+
+                        <Switch
+                            android:id="@+id/ratify_new_york"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_new_york" />
+
+                        <Switch
+                            android:id="@+id/ratify_north_carolina"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_north_carolina" />
+
+                        <Switch
+                            android:id="@+id/ratify_rhode_island"
+                            style="@style/RatificationSwitch"
+                            android:text="@string/ratify_rhode_island" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/sign_ratification"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/ratify" />
+            </LinearLayout>
+
+
+        </ScrollView>
+    </LinearLayout>
+</layout>

@@ -1,4 +1,4 @@
-package com.ehmer.rxdemo;
+package com.ehmer.usa;
 
 import org.junit.Test;
 

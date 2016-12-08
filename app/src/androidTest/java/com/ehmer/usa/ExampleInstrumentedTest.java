@@ -1,4 +1,4 @@
-package com.ehmer.rxdemo;
+package com.ehmer.usa;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

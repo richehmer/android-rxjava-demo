@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RxDemo</string>
+    <string name="app_name">RxUsa</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -13,4 +13,33 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+
+    <string name="ratification_hint">9 of 13 states must ratify before you sign the constitution</string>
+    <string name="ratify_delaware">Delaware</string>
+    <string name="ratify_pennsylvania">Pennsylvania</string>
+    <string name="ratify_new_jersey">New Jersey</string>
+    <string name="ratify_georgia">Georgia</string>
+    <string name="ratify_connecticut">Connecticut</string>
+    <string name="ratify_massachusetts">Massachusetts</string>
+    <string name="ratify_maryland">Maryland</string>
+    <string name="ratify_south_carolina">South Carolina</string>
+    <string name="ratify_new_hampshire"> New Hampshire</string>
+    <string name="ratify_virginia">Virginia</string>
+    <string name="ratify_new_york">New York</string>
+    <string name="ratify_north_carolina">North Carolina</string>
+    <string name="ratify_rhode_island">Rhode Island</string>
+
+    <string name="ratify">Sign US Constitution</string>
+
+    <string name="legislative">Legislative</string>
+    <string name="executive">Executive</string>
+    <string name="judicial">Judicial</string>
+    <string name="media">Media</string>
 </resources>
