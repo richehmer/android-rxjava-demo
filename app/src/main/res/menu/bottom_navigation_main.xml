@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
+        android:id="@+id/action_legistative"
+        android:enabled="true"
+        android:icon="@drawable/ic_legislative_black_24dp"
+        android:title="@string/legislative"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_executive"
         android:enabled="true"
         android:icon="@drawable/ic_executive_black_24dp"
@@ -13,19 +19,13 @@
         android:icon="@drawable/ic_judicial_black_24dp"
         android:title="@string/judicial"
         app:showAsAction="ifRoom" />
-    <item
-        android:id="@+id/action_legistative"
-        android:enabled="true"
-        android:icon="@drawable/ic_legislative_black_24dp"
-        android:title="@string/legislative"
-        app:showAsAction="ifRoom" />
 
-    <item
-        android:id="@+id/action_media"
-        android:enabled="true"
-        android:icon="@drawable/ic_media_black_24dp"
-        android:title="@string/media"
-        app:showAsAction="ifRoom" />
+    <!--<item-->
+        <!--android:id="@+id/action_media"-->
+        <!--android:enabled="true"-->
+        <!--android:icon="@drawable/ic_media_black_24dp"-->
+        <!--android:title="@string/media"-->
+        <!--app:showAsAction="ifRoom" />-->
 
 
 </menu>

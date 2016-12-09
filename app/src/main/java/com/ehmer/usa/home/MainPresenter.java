@@ -45,22 +45,22 @@ public class MainPresenter implements MainContract.UserActionListener {
 
     @Override
     public void requestJudicialBranch() {
-
+        view.showJudicial();
     }
 
     @Override
     public void requestExecutiveBranch() {
-
+        view.showExecutive();
     }
 
     @Override
     public void requestLegislativeBranch() {
-
+        view.showLegislative();
     }
 
     @Override
     public void requestMediaBranch() {
-
+        view.showMedia();
     }
 
     @Override

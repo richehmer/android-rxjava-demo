@@ -8,12 +8,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.Toast;
 
 import com.ehmer.usa.R;
 import com.ehmer.usa.UsaApplication;
 import com.ehmer.usa.bill.Bill;
-import com.ehmer.usa.databinding.FragmentLegislativeBinding;
+import com.ehmer.usa.databinding.FragmentExecutiveBinding;
 import com.ehmer.usa.messaging.ConstitutionalMessageService;
 
 import java.util.List;
@@ -27,14 +26,14 @@ import rx.subscriptions.CompositeSubscription;
  * Created by Ehmer, R.G. on 12/8/16.
  */
 
-public class LegislativeFragment extends Fragment {
+public class ExecutiveFragment extends Fragment {
 
     @Inject
     ConstitutionalMessageService messageService;
 
     final CompositeSubscription subscriptions = new CompositeSubscription();
 
-    FragmentLegislativeBinding bind;
+    FragmentExecutiveBinding bind;
     private ArrayAdapter<Bill> mAdapter;
 
     @Override
@@ -47,7 +46,7 @@ public class LegislativeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_legislative, container, false);
+        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_executive, container, false);
         return bind.getRoot();
 
     }
@@ -56,7 +55,7 @@ public class LegislativeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupViews();
-        subscriptions.add(messageService.vetoedBills().subscribe(new Action1<List<Bill>>() {
+        subscriptions.add(messageService.proposedBills().subscribe(new Action1<List<Bill>>() {
             @Override
             public void call(List<Bill> bills) {
                 //populate list of bills
@@ -68,15 +67,6 @@ public class LegislativeFragment extends Fragment {
     }
 
     void setupViews() {
-        bind.proposeLaw.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                final Bill bill = new Bill();
-                messageService.proposeBill(bill);
-                Toast.makeText(getActivity(), "Proposed " + bill.toString(), Toast.LENGTH_LONG).show();
-            }
-        });
-
         mAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1);
         bind.list.setAdapter(mAdapter);
     }
