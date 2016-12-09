@@ -43,19 +43,22 @@ public class MessageServiceImpl implements ConstitutionalMessageService {
         final List<Bill> cached = new ArrayList<>(cachedBills);
         billStream = BehaviorSubject.create(cached);
 
-        // save all updates to the cache (skip the first cached emission we populated above)
+        // save all updates to the cache (skip the first cached emission populated above)
         billStream.skip(1).subscribe(new Action1<List<Bill>>() {
             @Override
             public void call(List<Bill> bills) {
                 HashSet<String> saved = new LinkedHashSet<>();
                 for (Bill bill : bills) {
-                    saved.add(gson.toJson(bill));
+                    // housekeeping, failed bills are forgotten
+                    if (bill.state != Bill.FAILED) {
+                        saved.add(gson.toJson(bill));
+                    }
                 }
                 billsPref.set(saved);
             }
         });
 
-        // clear the bills if the constitution isn't ratified
+        // clear all bills if the constitution isn't ratified
         constitutionService.getConstitution().subscribe(new Action1<UsConstitution>() {
             @Override
             public void call(UsConstitution constitution) {
@@ -122,7 +125,7 @@ public class MessageServiceImpl implements ConstitutionalMessageService {
 
     /**
      * Transforms an observable that emits lists of bills into one that
-     * emits lists of bills that are of the argument bill state
+     * emits lists of bills that are in the same state as the parameter
      *
      * @param billState desired bill state
      * @return a {@link rx.Observable.Transformer} that can be used with the 'compose' method

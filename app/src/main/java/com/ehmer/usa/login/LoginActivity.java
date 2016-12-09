@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity implements RatificationCont
     @Override
     public Observable<Integer> ratificationCount() {
 
-        //the combine latest operator accepts a maxumum of 16 observables, so we must split
+        //the "combine latest" operator accepts a maxumum of 7 observables, so we have to split
         //it into 2 observables
         final Observable<Integer> observableGroup1 = Observable.combineLatest(
                 RxCompoundButton.checkedChanges(bind.ratifyDelaware).compose(boolToInt),
@@ -106,6 +106,10 @@ public class LoginActivity extends AppCompatActivity implements RatificationCont
 
     }
 
+    /**
+     * Transform a source observable that emits booleans into an observable that emits Integers
+     * for use in the 'compose' operator.
+     */
     private final Observable.Transformer<Boolean, Integer> boolToInt = new Observable.Transformer<Boolean, Integer>() {
         @Override
         public Observable<Integer> call(Observable<Boolean> booleanObservable) {
@@ -118,7 +122,6 @@ public class LoginActivity extends AppCompatActivity implements RatificationCont
                     });
         }
     };
-
 
     @Override
     public void setHintVisibility(boolean visible) {
