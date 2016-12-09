@@ -13,10 +13,15 @@
         <Button
             android:id="@+id/proposeLaw"
             android:layout_gravity="center_horizontal"
-            android:layout_marginTop="16dp"
+            android:layout_margin="16dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/propose_law" />
+
+        <TextView
+            android:text="@string/legislative_override_instructions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
         <ListView
             android:id="@+id/list"

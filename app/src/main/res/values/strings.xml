@@ -49,4 +49,5 @@
     <string name="kill">Kill</string>
 
     <string name="legislative_instructions">After Congress proposes a Bill, it\'s up to the Executive branch to sign the Bill into law.</string>
+    <string name="legislative_override_instructions">If the Executive branch vetos a Bill, Congress can override the veto with a 2/3 majority vote. Here is a list of Bills the President has vetoed:</string>
 </resources>

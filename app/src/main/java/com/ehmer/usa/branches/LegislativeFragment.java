@@ -1,4 +1,4 @@
-package com.ehmer.usa.legislative;
+package com.ehmer.usa.branches;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.ehmer.usa.R;
@@ -35,7 +34,7 @@ public class LegislativeFragment extends Fragment {
     final CompositeSubscription subscriptions = new CompositeSubscription();
 
     FragmentLegislativeBinding bind;
-    private ArrayAdapter<Bill> mAdapter;
+    private TwoOptionsArrayAdapter<Bill> mAdapter;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,7 +76,23 @@ public class LegislativeFragment extends Fragment {
             }
         });
 
-        mAdapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1);
+        mAdapter = new TwoOptionsArrayAdapter<>(getActivity());
+        mAdapter.setOptionOneListener(getString(R.string.kill), new TwoOptionsArrayAdapter.OptionClickListener<Bill>() {
+            @Override
+            public void onOptionClicked(Bill item) {
+                messageService.invalidateBill(item);
+                Toast.makeText(getContext(),"Killed "+item.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        mAdapter.setOptionTwoListener(getString(R.string.override), new TwoOptionsArrayAdapter.OptionClickListener<Bill>() {
+            @Override
+            public void onOptionClicked(Bill item) {
+                messageService.overrideVeto(item);
+                Toast.makeText(getContext(),"Override Veto to Pass "+item.toString(),Toast.LENGTH_SHORT).show();
+            }
+        });
+
         bind.list.setAdapter(mAdapter);
     }
 
