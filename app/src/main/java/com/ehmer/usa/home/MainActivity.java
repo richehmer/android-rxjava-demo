@@ -18,6 +18,7 @@ import android.view.MenuItem;
 
 import com.ehmer.usa.R;
 import com.ehmer.usa.UsaApplication;
+import com.ehmer.usa.branches.JudicialFragment;
 import com.ehmer.usa.constitution.ConstitutionService;
 import com.ehmer.usa.branches.ExecutiveFragment;
 import com.ehmer.usa.branches.LegislativeFragment;
@@ -146,7 +147,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void showJudicial() {
-
+        setDisplayedFragment(new JudicialFragment());
     }
 
     @Override

@@ -63,7 +63,8 @@ public class Bill {
 
     @Override
     public String toString() {
-        return String.format("Bill %s", name.substring(0, 4));
+        String prefix = state != PASSED ? stateAsString() + " Bill" : "Law";
+        return String.format("%s %s", prefix, name.substring(0, 4));
     }
 
 
