@@ -15,6 +15,8 @@ import com.ehmer.usa.bill.Bill;
 import com.ehmer.usa.databinding.FragmentLegislativeBinding;
 import com.ehmer.usa.messaging.ConstitutionalMessageService;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import rx.functions.Action1;
@@ -53,10 +55,10 @@ public class LegislativeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         setupViews();
-        subscriptions.add(messageService.vetoedBills().subscribe(new Action1<Bill>() {
+        subscriptions.add(messageService.vetoedBills().subscribe(new Action1<List<Bill>>() {
             @Override
-            public void call(Bill bill) {
-
+            public void call(List<Bill> bills) {
+                //populate list of bills
             }
         }));
 
@@ -68,7 +70,7 @@ public class LegislativeFragment extends Fragment {
             public void onClick(View view) {
                 final Bill bill = new Bill();
                 messageService.proposeBill(bill);
-                Toast.makeText(getActivity(),"Proposed Bill: "+bill.toString(),Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), "Proposed Bill: " + bill.toString(), Toast.LENGTH_LONG).show();
             }
         });
     }

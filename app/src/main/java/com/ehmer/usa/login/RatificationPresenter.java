@@ -28,6 +28,8 @@ public class RatificationPresenter implements RatificationContract.UserActionLis
 
     @Override
     public void create() {
+
+
         // listen for a ratified constitution
         subscriptions.add(constitutionService.getConstitution()
                 .filter(new Func1<Constitution, Boolean>() {
@@ -82,7 +84,7 @@ public class RatificationPresenter implements RatificationContract.UserActionLis
     @Override
     public void ratify(UsConstitution constitution) {
 
-        // a typical 'login' request
+        // typical structure of 'login' request
         clearRatificationSubscription();
         view.setSignatureInProgress(true);
         ratificationSubscription = constitutionService.signConstitution(constitution)

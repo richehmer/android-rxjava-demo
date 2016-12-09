@@ -23,6 +23,8 @@ public class MainPresenter implements MainContract.UserActionListener {
 
     @Override
     public void create() {
+
+        // show ratification screen if unratified
         subscriptions.add(constitutionService.getConstitution()
                 .subscribe(new Action1<Constitution>() {
                     @Override
@@ -32,6 +34,8 @@ public class MainPresenter implements MainContract.UserActionListener {
                         }
                     }
                 }));
+
+
     }
 
     @Override
@@ -63,4 +67,5 @@ public class MainPresenter implements MainContract.UserActionListener {
     public void unratifyConstitution() {
         constitutionService.deleteConstitution();
     }
+
 }
