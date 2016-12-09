@@ -43,6 +43,10 @@
     <string name="judicial">Judicial</string>
     <string name="media">Media</string>
     <string name="propose_law">Propose Bill</string>
+    <string name="veto">Veto</string>
+    <string name="sign">Sign</string>
+    <string name="override">Override Veto</string>
+    <string name="kill">Kill</string>
 
     <string name="legislative_instructions">After Congress proposes a Bill, it\'s up to the Executive branch to sign the Bill into law.</string>
 </resources>

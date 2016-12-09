@@ -63,7 +63,7 @@ public class Bill {
 
     @Override
     public String toString() {
-        return String.format("Bill %s [%s]", name.substring(0, 4), stateAsString());
+        return String.format("Bill %s", name.substring(0, 4));
     }
 
 
