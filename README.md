@@ -8,14 +8,14 @@ LoginActivity is the best place to start.
 
 ### Improvements
 
-Improvements that make the app more pleasant to use, or function more like the actual US Federal Government are welcome. Simulated voting, negotiations, a 'News' branch, etc.
+Let's make the app more pleasant to use, and/or function more like the actual US Federal Government. Simulated voting, negotiations, a 'News' branch, etc.
 
 A few technical areas:
- - _Every branch should have it's own service and persistence layer:_ Right now, the branches are spoonfed information from a centralized message service, but that's not how things work in the real world. Branches should store 'Bills' or government artifacts in their own persistence layers and *trade* information. Ideally, the messaging service doesn't store any information.
+ - _Every branch should have it's own service and persistence layer:_ Right now, the branches are spoon-fed information from a centralized message service, but that's not how things work in the real world. Branches should store 'Bills' or government artifacts in their own persistence layers and *trade* information. Ideally, the messaging service doesn't store any information.
  - _Add the concept of Time:_ If the legislature sends a bill to the President and the president doesn't act within 10 days, the bill is automatically signed into law. This would also open the door to election and voting simulations.
 
- Design Areas:
- - Any ideas to make the user-experience fun and interactive?
+### Design Areas:
+ - Do you have ideas to make the user-experience fun and interactive? Create an issue in this Github Repo
 
 ### FIXME
 - Bottom bar icons need color to reflect their selection state
