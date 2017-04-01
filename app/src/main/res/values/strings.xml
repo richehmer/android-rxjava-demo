@@ -52,4 +52,8 @@
     <string name="legislative_instructions">After Congress proposes a Bill, it\'s up to the Executive branch to sign the Bill into law.</string>
     <string name="legislative_override_instructions">If the Executive branch vetos a Bill, Congress can override the veto with a 2/3 majority vote. Here is a list of Bills the President has vetoed:</string>
     <string name="judicial_instructions">The Supreme Court has the power to review and invalidate Laws:</string>
+
+    <!-- Executive Screen -->
+    <string name="executive_action_list_empty_message">Currently, there are no Bills to approve or veto.</string>
+
 </resources>

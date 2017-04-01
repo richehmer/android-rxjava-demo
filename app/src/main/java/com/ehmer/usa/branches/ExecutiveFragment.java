@@ -1,18 +1,17 @@
 package com.ehmer.usa.branches;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.ehmer.usa.R;
 import com.ehmer.usa.UsaApplication;
 import com.ehmer.usa.bill.Bill;
-import com.ehmer.usa.databinding.FragmentExecutiveBinding;
 import com.ehmer.usa.messaging.ConstitutionalMessageService;
 
 import java.util.List;
@@ -33,7 +32,6 @@ public class ExecutiveFragment extends Fragment {
 
     final CompositeSubscription subscriptions = new CompositeSubscription();
 
-    FragmentExecutiveBinding bind;
     private TwoOptionsArrayAdapter<Bill> mAdapter;
 
     @Override
@@ -46,15 +44,16 @@ public class ExecutiveFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        bind = DataBindingUtil.inflate(inflater, R.layout.fragment_executive, container, false);
-        return bind.getRoot();
+        View inflate = inflater.inflate(R.layout.fragment_executive, container, false);
+        setupViews(inflate);
+        return inflate;
 
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        setupViews();
+
         subscriptions.add(messageService.proposedBills().subscribe(new Action1<List<Bill>>() {
             @Override
             public void call(List<Bill> bills) {
@@ -66,7 +65,7 @@ public class ExecutiveFragment extends Fragment {
 
     }
 
-    void setupViews() {
+    void setupViews(View root) {
         mAdapter = new TwoOptionsArrayAdapter<>(getActivity());
         mAdapter.setOptionOneListener(getString(R.string.veto),
                 new TwoOptionsArrayAdapter.OptionClickListener<Bill>() {
@@ -85,7 +84,10 @@ public class ExecutiveFragment extends Fragment {
                     }
                 });
 
-        bind.list.setAdapter(mAdapter);
+        ListView listView = (ListView) root.findViewById(R.id.list);
+        View emptyView = root.findViewById(R.id.empty);
+        listView.setEmptyView(emptyView);
+        listView.setAdapter(mAdapter);
     }
 
     @Override
